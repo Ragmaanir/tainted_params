@@ -15,4 +15,5 @@ describe TaintedParams::StringKeyHash do
   it '' do
     assert{ h.keys == ['symbol', 'string'] }
   end
+
 end

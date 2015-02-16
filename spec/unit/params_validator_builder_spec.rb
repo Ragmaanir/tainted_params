@@ -21,4 +21,5 @@ describe TaintedParams::ParamsValidatorBuilder do
 
     assert{ b.raw_validations == result }
   end
+
 end
