@@ -1,0 +1,3 @@
+describe TaintedParams do
+
+end

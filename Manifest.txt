@@ -1,0 +1,8 @@
+.autotest
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/tainted_params
+lib/tainted_params.rb
+test/test_tainted_params.rb
