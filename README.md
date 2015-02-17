@@ -1,23 +1,23 @@
-= tainted_params
+# tainted_params
 
 https://github.com/Ragmaanir/tainted_params
 
-== DESCRIPTION:
+# DESCRIPTION
 
 Behaves like strong_parameters, with some minor differences.
 
-== FEATURES:
+# FEATURES
 
 - Validate required and optional parameters
 - Validate their types
 - Type coercions for parameters
 
-== PROBLEMS/TODO:
+# PROBLEMS/TODO
 
 - made some monkey patches to hash(slice, only, except, map_pairs) to not having to depend on active support gem
 - custom HashWithIndifferentAccess
 
-== SYNOPSIS:
+# SYNOPSIS
 
   builder = TaintedParams::ParamsValidatorBuilder.new do
     required :id, :Integer
@@ -36,15 +36,15 @@ Behaves like strong_parameters, with some minor differences.
   assert{ result.unpermitted  == { options: { admin: true } } }
   assert{ result.missing      == { id: nil } }
 
-== REQUIREMENTS:
+# REQUIREMENTS
 
 * Ruby >= 2
 
-== INSTALL:
+# INSTALL
 
 * FIX
 
-== DEVELOPERS:
+# DEVELOPERS
 
 After checking out the source, run:
 
@@ -53,11 +53,11 @@ After checking out the source, run:
 This task will install any missing dependencies, run the tests/specs,
 and generate the RDoc.
 
-== INTERNALS
+# INTERNALS
 
 The ParamsValidatorBuilder constructs a ParamsValidator out of ParamConstraints. The ParamsValidator contains the validation logic to split a params-hash into valid, invalid, missing and unpermitted parts.
 
-== LICENSE:
+# LICENSE
 
 (The MIT License)
 
