@@ -19,22 +19,22 @@ Behaves like strong_parameters, with some minor differences.
 
 # SYNOPSIS
 
-  builder = TaintedParams::ParamsValidatorBuilder.new do
-    required :id, :Integer
-    permitted :options, :Hash do
-      permitted :name, :String
-      permitted :active, :Boolean
+    builder = TaintedParams::ParamsValidatorBuilder.new do
+      required :id, :Integer
+      permitted :options, :Hash do
+        permitted :name, :String
+        permitted :active, :Boolean
+      end
     end
-  end
 
-  validator = builder.result
+    validator = builder.result
 
-  result = validator.validate(options: { name: 'bob', active: 1, admin: true })
+    result = validator.validate(options: { name: 'bob', active: 1, admin: true })
 
-  assert{ result.valid        == { options: { name: 'bob' } } }
-  assert{ result.invalid      == { options: { active: 1 } } }
-  assert{ result.unpermitted  == { options: { admin: true } } }
-  assert{ result.missing      == { id: nil } }
+    assert{ result.valid        == { options: { name: 'bob' } } }
+    assert{ result.invalid      == { options: { active: 1 } } }
+    assert{ result.unpermitted  == { options: { admin: true } } }
+    assert{ result.missing      == { id: nil } }
 
 # REQUIREMENTS
 
