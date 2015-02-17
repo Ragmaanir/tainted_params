@@ -5,9 +5,9 @@ describe TaintedParams::ParamsValidatorBuilder do
   it 'constructs a tree out of constraints' do
     b = described_class.new do
       required :id, :Integer
-      permitted :options, :Hash do
-        permitted :name, :String
-        permitted :active, :Boolean
+      optional :options, :Hash do
+        optional :name, :String
+        optional :active, :Boolean
       end
     end
 

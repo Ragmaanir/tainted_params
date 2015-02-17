@@ -20,7 +20,7 @@ module TaintedParams
       validation(name, true, type, &block)
     end
 
-    def permitted(name, type, &block)
+    def optional(name, type, &block)
       validation(name, false, type, &block)
     end
 

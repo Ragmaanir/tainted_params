@@ -66,7 +66,7 @@ describe TaintedParams::ParamsValidator do
 
   it 'does not require optional params' do
     val = TaintedParams::ParamsValidatorBuilder.new do
-      permitted :id, :Integer
+      optional :id, :Integer
     end.result
 
     res = val.validate({})
@@ -79,7 +79,7 @@ describe TaintedParams::ParamsValidator do
 
   it 'does not validate hash-contents if not specified' do
     val = TaintedParams::ParamsValidatorBuilder.new do
-      permitted :options, :Hash
+      optional :options, :Hash
     end.result
 
     res = val.validate(options: {anything: 123})
@@ -92,7 +92,7 @@ describe TaintedParams::ParamsValidator do
 
   it 'does validate sub-hashes if specified' do
     val = TaintedParams::ParamsValidatorBuilder.new do
-      permitted :options, :Hash do
+      optional :options, :Hash do
         required :id, :Integer
       end
     end.result
@@ -107,7 +107,7 @@ describe TaintedParams::ParamsValidator do
 
   it 'does not require sub-hash if its optional but contains required params' do
     val = TaintedParams::ParamsValidatorBuilder.new do
-      permitted :options, :Hash do
+      optional :options, :Hash do
         required :id, :Integer
       end
     end.result
@@ -120,12 +120,12 @@ describe TaintedParams::ParamsValidator do
     assert{ res.missing     == { } }
   end
 
-  it 'it puts valid, invalid, permitted and missing params in sub-hashes in the result' do
+  it 'it puts valid, invalid, optional and missing params in sub-hashes in the result' do
     val = TaintedParams::ParamsValidatorBuilder.new do
       required :options, :Hash do
         required :missing, :Integer
-        permitted :valid, :Integer
-        permitted :invalid, :String
+        optional :valid, :Integer
+        optional :invalid, :String
       end
     end.result
 
