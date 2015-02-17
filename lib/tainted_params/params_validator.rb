@@ -44,10 +44,10 @@ module TaintedParams
           elsif validation.nested
             res = _validate(validation.nested, v)
 
-            valid[validation.name]        = res.valid
-            invalid[validation.name]      = res.invalid
-            missing[validation.name]      = res.missing
-            unpermitted[validation.name]  = res.unpermitted
+            valid[validation.name]        = res.valid unless res.valid.empty?
+            invalid[validation.name]      = res.invalid unless res.invalid.empty?
+            missing[validation.name]      = res.missing unless res.missing.empty?
+            unpermitted[validation.name]  = res.unpermitted unless res.unpermitted.empty?
           else
             valid[validation.name] = res
           end
