@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tainted_params (0.0.0)
+    tainted_params (0.3.1)
 
 GEM
   remote: https://rubygems.org/

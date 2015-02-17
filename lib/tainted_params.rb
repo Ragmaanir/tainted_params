@@ -7,8 +7,6 @@ require 'tainted_params/param_type_constraint'
 require 'tainted_params/params_validator_builder'
 require 'tainted_params/params_validator'
 
-require 'pry'
-
 module TaintedParams
 
 end
