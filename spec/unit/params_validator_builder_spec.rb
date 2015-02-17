@@ -2,7 +2,7 @@ describe TaintedParams::ParamsValidatorBuilder do
 
   TC = TaintedParams::DEFAULT_TYPE_CONSTRAINTS
 
-  it '' do
+  it 'constructs a tree out of constraints' do
     b = described_class.new do
       required :id, :Integer
       permitted :options, :Hash do
