@@ -17,10 +17,27 @@ module TaintedParams
       @hash = self.class.stringify_keys(hash).freeze
     end
 
-    def_delegators :@hash, :fetch, :each, :map_pairs, :values_at, :keys, :values
+    def_delegators :@hash, *%w{
+      fetch
+      keys values rassoc shift
+      each map_pairs
+      length size empty?
+    }
+
+    def key?(k)
+      @hash.key?(convert_key(k))
+    end
+
+    alias_method :include?, :key?
+    alias_method :has_key?, :key?
+    alias_method :member?, :key?
 
     def [](key)
       @hash[convert_key(key)]
+    end
+
+    def values_at(*args)
+      args.map{ |k| self[k] }
     end
 
     def merge(hash, &block)
@@ -33,6 +50,14 @@ module TaintedParams
 
     def to_hash
       @hash
+    end
+
+    def ==(other)
+      case other
+        when Hash then self == self.class.new(other)
+        when self.class then to_hash == other.to_hash
+        else false
+      end
     end
 
   private
