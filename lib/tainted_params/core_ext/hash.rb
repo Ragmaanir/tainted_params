@@ -16,11 +16,11 @@ class Hash
   #   end
   # end
 
-  def slice(keys)
-    select{ |k,_| keys.include?(k) }
-  end
+  # def slice(keys)
+  #   select{ |k,_| keys.include?(k) }
+  # end
 
-  alias_method :only, :slice
+  #alias_method :only, :slice
 
   def except(keys)
     select{ |k,_| !keys.include?(k) }
