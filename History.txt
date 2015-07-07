@@ -1,2 +1,8 @@
+=== 0.3.3 / 2015-07-07
+
+* Removed experimental stuff
+* Added activesupport dependency to get rid of custom monkey-patches
+
 === 0.3.2 / 2015-02-13
 
+* Basic working version

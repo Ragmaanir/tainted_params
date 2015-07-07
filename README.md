@@ -14,8 +14,7 @@ Behaves like strong_parameters, with some minor differences.
 
 ## Problems/Todo
 
-- made some monkey patches to hash(slice, only, except, map_pairs) to not having to depend on active support gem
-- custom HashWithIndifferentAccess
+- get rid of activesupport dependency
 
 ## Synopsis
 
