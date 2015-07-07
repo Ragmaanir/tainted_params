@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version     = "~> 2.1"
   s.rubyforge_project         = "tainted_params"
 
+  s.add_runtime_dependency 'activesupport', '>= 3.2'
+
   s.add_development_dependency "rspec", '~> 3.0'
   s.add_development_dependency 'wrong', '~> 0.7'
 

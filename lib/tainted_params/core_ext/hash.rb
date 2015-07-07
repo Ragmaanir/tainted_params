@@ -22,7 +22,7 @@ class Hash
 
   #alias_method :only, :slice
 
-  def except(keys)
+  def except(*keys)
     select{ |k,_| !keys.include?(k) }
   end
 end

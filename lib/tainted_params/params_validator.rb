@@ -29,7 +29,7 @@ module TaintedParams
       raise ArgumentError unless validations.is_a?(Array)
       raise ArgumentError unless params.is_a?(Hash)
 
-      unpermitted = params.except(validations.map(&:name))
+      unpermitted = params.except(*validations.map(&:name))
       invalid     = {}
       missing     = {}
       valid       = {}

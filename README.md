@@ -40,10 +40,11 @@ Behaves like strong_parameters, with some minor differences.
 ## Requirements
 
 * Ruby >= 2
+* activesupport
 
 ## Install
 
-* FIX
+* gem install tainted_params
 
 ## Developers
 

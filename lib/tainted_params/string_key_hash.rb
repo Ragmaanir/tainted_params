@@ -7,9 +7,12 @@ module TaintedParams
     include Enumerable
 
     def self.stringify_keys(hash)
-      hash.map_pairs{ |k,v|
-        [k.to_s, v]
-      }
+      #hash.map_pairs{ |k,v|
+      #  [k.to_s, v]
+      #}
+      hash.transform_keys do |k|
+        k.to_s
+      end
     end
 
     def initialize(hash)
@@ -20,7 +23,7 @@ module TaintedParams
     def_delegators :@hash, *%w{
       fetch
       keys values rassoc shift
-      each map_pairs
+      each transform_keys
       length size empty?
     }
 
